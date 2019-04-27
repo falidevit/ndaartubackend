@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace NdarrtuAPI\Repositories;
 
-use App\Models\classes;
-use App\Repositories\BaseRepository;
+use NdarrtuAPI\Models\classes;
+use NdarrtuAPI\Repositories\BaseRepository;
 
 /**
  * Class classesRepository
- * @package App\Repositories
+ * @package NdarrtuAPI\Repositories
  * @version April 27, 2019, 8:54 pm UTC
 */
 

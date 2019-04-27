@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace NdarrtuAPI\Http\Requests\API;
 
-use App\Models\classes;
+use NdarrtuAPI\Models\classes;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdateclassesAPIRequest extends APIRequest

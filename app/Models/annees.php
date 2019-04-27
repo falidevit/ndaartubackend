@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace NdarrtuAPI\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * Class annees
- * @package App\Models
+ * @package NdarrtuAPI\Models
  * @version April 27, 2019, 8:58 pm UTC
  *
  * @property string annee_academique

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace NdarrtuAPI\Http\Requests\API;
 
-use App\Models\etablissements;
+use NdarrtuAPI\Models\etablissements;
 use InfyOm\Generator\Request\APIRequest;
 
 class CreateetablissementsAPIRequest extends APIRequest

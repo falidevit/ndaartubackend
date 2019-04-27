@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\CreatepresencesAPIRequest;
-use App\Http\Requests\API\UpdatepresencesAPIRequest;
-use App\Models\presences;
-use App\Repositories\presencesRepository;
+use NdarrtuAPI\Http\Requests\API\CreatepresencesAPIRequest;
+use NdarrtuAPI\Http\Requests\API\UpdatepresencesAPIRequest;
+use NdarrtuAPI\Models\presences;
+use NdarrtuAPI\Repositories\presencesRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class presencesController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class presencesAPIController extends AppBaseController

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\CreatejustificationsAPIRequest;
-use App\Http\Requests\API\UpdatejustificationsAPIRequest;
-use App\Models\justifications;
-use App\Repositories\justificationsRepository;
+use NdarrtuAPI\Http\Requests\API\CreatejustificationsAPIRequest;
+use NdarrtuAPI\Http\Requests\API\UpdatejustificationsAPIRequest;
+use NdarrtuAPI\Models\justifications;
+use NdarrtuAPI\Repositories\justificationsRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class justificationsController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class justificationsAPIController extends AppBaseController

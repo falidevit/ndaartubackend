@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace NdarrtuAPI\Repositories;
 
-use App\Models\users_matieres;
-use App\Repositories\BaseRepository;
+use NdarrtuAPI\Models\users_matieres;
+use NdarrtuAPI\Repositories\BaseRepository;
 
 /**
  * Class users_matieresRepository
- * @package App\Repositories
+ * @package NdarrtuAPI\Repositories
  * @version April 27, 2019, 10:00 pm UTC
 */
 

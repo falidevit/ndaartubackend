@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\Http\Requests\CreateetablissementsRequest;
-use App\Http\Requests\UpdateetablissementsRequest;
-use App\Repositories\etablissementsRepository;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Requests\CreateetablissementsRequest;
+use NdarrtuAPI\Http\Requests\UpdateetablissementsRequest;
+use NdarrtuAPI\Repositories\etablissementsRepository;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\Http\Requests\CreatepresencesRequest;
-use App\Http\Requests\UpdatepresencesRequest;
-use App\Repositories\presencesRepository;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Requests\CreatepresencesRequest;
+use NdarrtuAPI\Http\Requests\UpdatepresencesRequest;
+use NdarrtuAPI\Repositories\presencesRepository;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

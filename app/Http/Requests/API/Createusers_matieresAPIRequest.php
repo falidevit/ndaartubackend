@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace NdarrtuAPI\Http\Requests\API;
 
-use App\Models\users_matieres;
+use NdarrtuAPI\Models\users_matieres;
 use InfyOm\Generator\Request\APIRequest;
 
 class Createusers_matieresAPIRequest extends APIRequest

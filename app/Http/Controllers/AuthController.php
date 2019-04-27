@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\User;
+use NdarrtuAPI\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;

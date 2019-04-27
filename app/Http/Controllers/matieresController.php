@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\Http\Requests\CreatematieresRequest;
-use App\Http\Requests\UpdatematieresRequest;
-use App\Repositories\matieresRepository;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Requests\CreatematieresRequest;
+use NdarrtuAPI\Http\Requests\UpdatematieresRequest;
+use NdarrtuAPI\Repositories\matieresRepository;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

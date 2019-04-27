@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace NdarrtuAPI\Http\Requests\API;
 
-use App\Models\presences;
+use NdarrtuAPI\Models\presences;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdatepresencesAPIRequest extends APIRequest

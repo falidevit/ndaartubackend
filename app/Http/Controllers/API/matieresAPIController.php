@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\CreatematieresAPIRequest;
-use App\Http\Requests\API\UpdatematieresAPIRequest;
-use App\Models\matieres;
-use App\Repositories\matieresRepository;
+use NdarrtuAPI\Http\Requests\API\CreatematieresAPIRequest;
+use NdarrtuAPI\Http\Requests\API\UpdatematieresAPIRequest;
+use NdarrtuAPI\Models\matieres;
+use NdarrtuAPI\Repositories\matieresRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class matieresController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class matieresAPIController extends AppBaseController

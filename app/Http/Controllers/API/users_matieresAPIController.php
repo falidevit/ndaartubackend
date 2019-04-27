@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\Createusers_matieresAPIRequest;
-use App\Http\Requests\API\Updateusers_matieresAPIRequest;
-use App\Models\users_matieres;
-use App\Repositories\users_matieresRepository;
+use NdarrtuAPI\Http\Requests\API\Createusers_matieresAPIRequest;
+use NdarrtuAPI\Http\Requests\API\Updateusers_matieresAPIRequest;
+use NdarrtuAPI\Models\users_matieres;
+use NdarrtuAPI\Repositories\users_matieresRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class users_matieresController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class users_matieresAPIController extends AppBaseController

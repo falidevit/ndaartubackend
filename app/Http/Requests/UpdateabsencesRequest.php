@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace NdarrtuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\absences;
+use NdarrtuAPI\Models\absences;
 
 class UpdateabsencesRequest extends FormRequest
 {

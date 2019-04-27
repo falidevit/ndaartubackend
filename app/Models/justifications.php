@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace NdarrtuAPI\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * Class justifications
- * @package App\Models
+ * @package NdarrtuAPI\Models
  * @version April 27, 2019, 9:20 pm UTC
  *
  * @property string motif

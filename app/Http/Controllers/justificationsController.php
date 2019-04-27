@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\Http\Requests\CreatejustificationsRequest;
-use App\Http\Requests\UpdatejustificationsRequest;
-use App\Repositories\justificationsRepository;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Requests\CreatejustificationsRequest;
+use NdarrtuAPI\Http\Requests\UpdatejustificationsRequest;
+use NdarrtuAPI\Repositories\justificationsRepository;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateanneesAPIRequest;
-use App\Http\Requests\API\UpdateanneesAPIRequest;
-use App\Models\annees;
-use App\Repositories\anneesRepository;
+use NdarrtuAPI\Http\Requests\API\CreateanneesAPIRequest;
+use NdarrtuAPI\Http\Requests\API\UpdateanneesAPIRequest;
+use NdarrtuAPI\Models\annees;
+use NdarrtuAPI\Repositories\anneesRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class anneesController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class anneesAPIController extends AppBaseController

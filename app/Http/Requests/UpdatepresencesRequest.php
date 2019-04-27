@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace NdarrtuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\presences;
+use NdarrtuAPI\Models\presences;
 
 class UpdatepresencesRequest extends FormRequest
 {

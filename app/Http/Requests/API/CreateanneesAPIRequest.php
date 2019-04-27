@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace NdarrtuAPI\Http\Requests\API;
 
-use App\Models\annees;
+use NdarrtuAPI\Models\annees;
 use InfyOm\Generator\Request\APIRequest;
 
 class CreateanneesAPIRequest extends APIRequest

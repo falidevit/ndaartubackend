@@ -174,11 +174,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        NdarrtuAPI\Providers\AppServiceProvider::class,
+        NdarrtuAPI\Providers\AuthServiceProvider::class,
+        // NdarrtuAPI\Providers\BroadcastServiceProvider::class,
+        NdarrtuAPI\Providers\EventServiceProvider::class,
+        NdarrtuAPI\Providers\RouteServiceProvider::class,
 
     ],
 

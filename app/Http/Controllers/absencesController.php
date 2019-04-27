@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace NdarrtuAPI\Http\Controllers;
 
-use App\Http\Requests\CreateabsencesRequest;
-use App\Http\Requests\UpdateabsencesRequest;
-use App\Repositories\absencesRepository;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Requests\CreateabsencesRequest;
+use NdarrtuAPI\Http\Requests\UpdateabsencesRequest;
+use NdarrtuAPI\Repositories\absencesRepository;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

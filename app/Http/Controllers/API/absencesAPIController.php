@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace NdarrtuAPI\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateabsencesAPIRequest;
-use App\Http\Requests\API\UpdateabsencesAPIRequest;
-use App\Models\absences;
-use App\Repositories\absencesRepository;
+use NdarrtuAPI\Http\Requests\API\CreateabsencesAPIRequest;
+use NdarrtuAPI\Http\Requests\API\UpdateabsencesAPIRequest;
+use NdarrtuAPI\Models\absences;
+use NdarrtuAPI\Repositories\absencesRepository;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AppBaseController;
+use NdarrtuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class absencesController
- * @package App\Http\Controllers\API
+ * @package NdarrtuAPI\Http\Controllers\API
  */
 
 class absencesAPIController extends AppBaseController
