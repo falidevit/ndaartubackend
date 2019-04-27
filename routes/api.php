@@ -33,3 +33,18 @@ Route::prefix('auth')->group(function () {
   //  Route::get('users', 'UserController@index')->middleware('isAdmin');
     //Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrProf');
 //});
+
+
+Route::resource('etablissements', 'etablissementsAPIController');
+
+Route::resource('classes', 'classesAPIController');
+
+Route::resource('annees', 'anneesAPIController');
+
+Route::resource('absences', 'absencesAPIController');
+
+Route::resource('justifications', 'justificationsAPIController');
+
+Route::resource('presences', 'presencesAPIController');
+
+Route::resource('users_matieres', 'users_matieresAPIController');

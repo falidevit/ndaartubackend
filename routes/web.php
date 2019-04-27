@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('matieres', 'matieresController');
+
+Route::resource('etablissements', 'etablissementsController');
+
+Route::resource('classes', 'classesController');
+
+Route::resource('annees', 'anneesController');
+
+Route::resource('absences', 'absencesController');
+
+Route::resource('justifications', 'justificationsController');
+
+Route::resource('presences', 'presencesController');
+
+Route::resource('usersMatieres', 'users_matieresController');
