@@ -191,7 +191,11 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
     </include_path>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+>>>>>>> akane
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
