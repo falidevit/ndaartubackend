@@ -1,13 +1,13 @@
 <?php
 
-namespace NdarrtuAPI\Repositories;
+namespace NdaartuAPI\Repositories;
 
-use NdarrtuAPI\Models\annees;
-use NdarrtuAPI\Repositories\BaseRepository;
+use NdaartuAPI\Models\annees;
+use NdaartuAPI\Repositories\BaseRepository;
 
 /**
  * Class anneesRepository
- * @package NdarrtuAPI\Repositories
+ * @package NdaartuAPI\Repositories
  * @version April 27, 2019, 8:58 pm UTC
 */
 

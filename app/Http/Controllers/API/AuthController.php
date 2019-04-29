@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
-namespace NdarrtuAPI\Http\Controllers\API;
+namespace NdaartuAPI\Http\Controllers;
+namespace NdaartuAPI\Http\Controllers\API;
 
-use NdarrtuAPI\User;
+use NdaartuAPI\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -14,94 +14,80 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
-    public function authenticate(Request $request)
+    private function getToken($email, $password)
     {
-        $credentials = $request->only('email', 'password');
-
+        $token = null;
+        //$credentials = $request->only('email', 'password');
         try {
-            if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+            if (!$token = JWTAuth::attempt(['email' => $email, 'password' => $password])) {
+                return response()->json([
+                    'response' => 'error',
+                    'message' => 'Password or email is invalid',
+                    'token' => $token
+                ]);
             }
-        } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+        } catch (JWTAuthException $e) {
+            return response()->json([
+                'response' => 'error',
+                'message' => 'Token creation failed',
+            ]);
         }
-
-        return response()->json(compact('token'));
-    }
-
-    public function register(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'string',
-            'role' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
-        ]);
-
-        if($validator->fails()){
-            return response()->json($validator->errors()->toJson(), 400);
-        }
-
-        $user = User::create([
-            'name' => $request->name,
-            'role' => $request->role,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
-
-        $token = JWTAuth::fromUser($user);
-
-        return response()->json(compact('user','token'),201);
+        return $token;
     }
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            //'remember_me' => 'boolean'
-        ]);
-        $credentials = request(['email', 'password']);
-        if(!Auth::attempt($credentials))
-            return response()->json([
-                'message' => 'Unauthorized'
-            ], 401);
-        $user = $request->user();
-        $tokenResult = $user->createToken('Personal Access Token');
-        $token = $tokenResult->token;
-        if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
-        $token->save();
-        return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
-    }
-
-    public function getAuthenticatedUser()
-    {
-        try {
-
-            if (! $user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['user_not_found'], 404);
+        $user = User::where('email', $request->email)->get()->first();
+        $isAdmin = User::where('role', 'Admin')->get();
+        if ($user && \Hash::check($request->password, $user->password)) // The passwords match...
+        {
+            $token = self::getToken($request->email, $request->password);
+            $user->auth_token = $token;
+            $user->save();
+            if ($user->role == 'Admin' && $user->surveillant_id != '') {
+                foreach ($isAdmin as $admin) {
+                    if ($admin->id == $user->surveillant_id) {
+                        $user->coachFullname = $coach->first_name . ' ' . $coach->last_name;
+                        $user->coachEmail = $coach->email;
+                        $user->coachPhone = $coach->phone;
+                    }
+                }
             }
-
-        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-
-            return response()->json(['token_expired'], $e->getStatusCode());
-
-        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-
-            return response()->json(['token_invalid'], $e->getStatusCode());
-
-        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
-
-            return response()->json(['token_absent'], $e->getStatusCode());
-
-        }
-
-        return response()->json(compact('user'));
+            $response = ['success' => true, 'data' => $user];
+        } else
+            $response = ['success' => false, 'data' => 'Record doesnt exists'];
+        return response()->json($response, 201);
     }
+    public function Logout()
+    {
+        Auth::logout();
+        $response = [
+            'success' => true,
+            'message' => 'Successfull logout user'
+        ];
+        return response()->json($response, 201);
+    }
+    public function register(Request $request)
+    {
+        $payload = [
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+
+            'auth_token' => ''
+        ];
+        $user = new \NdaartuAPI\User($payload);
+        if ($user->save()) {
+            $token = self::getToken($request->email, $request->password); // generate user token
+            if (!is_string($token))  return response()->json(['success' => false, 'data' => 'Token generation failed'], 201);
+            $user = \NdaartuAPI\User::where('email', $request->email)->get()->first();
+            $user->auth_token = $token; // update user token
+            $user->save();
+            $response = ['success' => true, 'data' => ['name' => $user->name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
+        } else
+            $response = ['success' => false, 'data' => 'Couldnt register user'];
+        return response()->json($response, 201);
+    }
+
 }

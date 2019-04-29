@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Http\Middleware;
+namespace NdaartuAPI\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 

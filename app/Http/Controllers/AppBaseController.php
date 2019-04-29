@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers;
+namespace NdaartuAPI\Http\Controllers;
 
 use InfyOm\Generator\Utils\ResponseUtil;
 use Response;

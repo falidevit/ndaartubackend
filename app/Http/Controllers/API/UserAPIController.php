@@ -7,7 +7,7 @@ use App\Http\Requests\API\UpdateUserAPIRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use NdarrtuAPI\Http\Controllers\AppBaseController;
+use NdaartuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**

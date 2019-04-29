@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers\Auth;
+namespace NdaartuAPI\Http\Controllers\Auth;
 
-use NdarrtuAPI\User;
-use NdarrtuAPI\Http\Controllers\Controller;
+use NdaartuAPI\User;
+use NdaartuAPI\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \NdarrtuAPI\User
+     * @return \NdaartuAPI\User
      */
     protected function create(array $data)
     {

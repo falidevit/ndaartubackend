@@ -1,13 +1,13 @@
 <?php
 
-namespace NdarrtuAPI\Repositories;
+namespace NdaartuAPI\Repositories;
 
-use NdarrtuAPI\Models\justifications;
-use NdarrtuAPI\Repositories\BaseRepository;
+use NdaartuAPI\Models\justifications;
+use NdaartuAPI\Repositories\BaseRepository;
 
 /**
  * Class justificationsRepository
- * @package NdarrtuAPI\Repositories
+ * @package NdaartuAPI\Repositories
  * @version April 27, 2019, 9:20 pm UTC
 */
 

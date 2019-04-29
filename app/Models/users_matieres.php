@@ -1,12 +1,12 @@
 <?php
 
-namespace NdarrtuAPI\Models;
+namespace NdaartuAPI\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * Class users_matieres
- * @package NdarrtuAPI\Models
+ * @package NdaartuAPI\Models
  * @version April 27, 2019, 10:00 pm UTC
  *
  */

@@ -1,5 +1,5 @@
 <?php
-namespace NdarrtuAPI\Http\Controllers;
+namespace NdaartuAPI\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Foundation\Bus\DispatchesJobs;

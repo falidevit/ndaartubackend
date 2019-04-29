@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Http\Middleware;
+namespace NdaartuAPI\Http\Middleware;
 
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;

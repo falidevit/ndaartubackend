@@ -1,13 +1,13 @@
 <?php
 
-namespace NdarrtuAPI\Repositories;
+namespace NdaartuAPI\Repositories;
 
-use NdarrtuAPI\Models\presences;
-use NdarrtuAPI\Repositories\BaseRepository;
+use NdaartuAPI\Models\presences;
+use NdaartuAPI\Repositories\BaseRepository;
 
 /**
  * Class presencesRepository
- * @package NdarrtuAPI\Repositories
+ * @package NdaartuAPI\Repositories
  * @version April 27, 2019, 9:43 pm UTC
 */
 

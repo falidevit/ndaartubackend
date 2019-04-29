@@ -1,8 +1,8 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers\Auth;
+namespace NdaartuAPI\Http\Controllers\Auth;
 
-use NdarrtuAPI\Http\Controllers\Controller;
+use NdaartuAPI\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

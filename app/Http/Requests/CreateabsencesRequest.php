@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\absences;
+use NdaartuAPI\Models\absences;
 
 class CreateabsencesRequest extends FormRequest
 {

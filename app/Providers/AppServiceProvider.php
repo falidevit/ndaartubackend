@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Providers;
+namespace NdaartuAPI\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;

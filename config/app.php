@@ -167,6 +167,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
        // Laravel\Passport\PassportServiceProvider::class,
 
         /*
@@ -176,11 +177,11 @@ return [
         /*
          * Application Service Providers...
          */
-        NdarrtuAPI\Providers\AppServiceProvider::class,
-        NdarrtuAPI\Providers\AuthServiceProvider::class,
-        // NdarrtuAPI\Providers\BroadcastServiceProvider::class,
-        NdarrtuAPI\Providers\EventServiceProvider::class,
-        NdarrtuAPI\Providers\RouteServiceProvider::class,
+        NdaartuAPI\Providers\AppServiceProvider::class,
+        NdaartuAPI\Providers\AuthServiceProvider::class,
+        // NdaartuAPI\Providers\BroadcastServiceProvider::class,
+        NdaartuAPI\Providers\EventServiceProvider::class,
+        NdaartuAPI\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -235,6 +236,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

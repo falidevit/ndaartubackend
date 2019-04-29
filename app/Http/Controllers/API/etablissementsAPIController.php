@@ -1,18 +1,18 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers\API;
+namespace NdaartuAPI\Http\Controllers\API;
 
-use NdarrtuAPI\Http\Requests\API\CreateetablissementsAPIRequest;
-use NdarrtuAPI\Http\Requests\API\UpdateetablissementsAPIRequest;
-use NdarrtuAPI\Models\etablissements;
-use NdarrtuAPI\Repositories\etablissementsRepository;
+use NdaartuAPI\Http\Requests\API\CreateetablissementsAPIRequest;
+use NdaartuAPI\Http\Requests\API\UpdateetablissementsAPIRequest;
+use NdaartuAPI\Models\etablissements;
+use NdaartuAPI\Repositories\etablissementsRepository;
 use Illuminate\Http\Request;
-use NdarrtuAPI\Http\Controllers\AppBaseController;
+use NdaartuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class etablissementsController
- * @package NdarrtuAPI\Http\Controllers\API
+ * @package NdaartuAPI\Http\Controllers\API
  */
 
 class etablissementsAPIController extends AppBaseController

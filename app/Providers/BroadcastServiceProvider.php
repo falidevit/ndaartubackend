@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Providers;
+namespace NdaartuAPI\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

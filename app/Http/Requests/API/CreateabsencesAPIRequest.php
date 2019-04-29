@@ -1,8 +1,8 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests\API;
+namespace NdaartuAPI\Http\Requests\API;
 
-use NdarrtuAPI\Models\absences;
+use NdaartuAPI\Models\absences;
 use InfyOm\Generator\Request\APIRequest;
 
 class CreateabsencesAPIRequest extends APIRequest

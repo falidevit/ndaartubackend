@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\etablissements;
+use NdaartuAPI\Models\etablissements;
 
 class CreateetablissementsRequest extends FormRequest
 {

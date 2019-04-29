@@ -1,11 +1,11 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers;
+namespace NdaartuAPI\Http\Controllers;
 
-use NdarrtuAPI\Http\Requests\CreateanneesRequest;
-use NdarrtuAPI\Http\Requests\UpdateanneesRequest;
-use NdarrtuAPI\Repositories\anneesRepository;
-use NdarrtuAPI\Http\Controllers\AppBaseController;
+use NdaartuAPI\Http\Requests\CreateanneesRequest;
+use NdaartuAPI\Http\Requests\UpdateanneesRequest;
+use NdaartuAPI\Repositories\anneesRepository;
+use NdaartuAPI\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;

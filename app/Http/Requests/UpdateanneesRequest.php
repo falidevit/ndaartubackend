@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\annees;
+use NdaartuAPI\Models\annees;
 
 class UpdateanneesRequest extends FormRequest
 {

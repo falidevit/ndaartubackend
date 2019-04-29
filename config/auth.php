@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => NdarrtuAPI\User::class,
+            'model' => NdaartuAPI\User::class,
         ],
 
         // 'users' => [

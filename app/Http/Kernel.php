@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Http;
+namespace NdaartuAPI\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -14,12 +14,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \NdarrtuAPI\Http\Middleware\CheckForMaintenanceMode::class,
+        \NdaartuAPI\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \NdarrtuAPI\Http\Middleware\TrimStrings::class,
+        \NdaartuAPI\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \NdarrtuAPI\Http\Middleware\TrustProxies::class,
-        \NdarrtuAPI\Http\Middleware\CORS::class,
+        \NdaartuAPI\Http\Middleware\TrustProxies::class,
+        \NdaartuAPI\Http\Middleware\CORS::class,
     ];
 
     /**
@@ -29,12 +29,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \NdarrtuAPI\Http\Middleware\EncryptCookies::class,
+            \NdaartuAPI\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \NdarrtuAPI\Http\Middleware\VerifyCsrfToken::class,
+            \NdaartuAPI\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -52,17 +52,17 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \NdarrtuAPI\Http\Middleware\Authenticate::class,
+        'auth' => \NdaartuAPI\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \NdarrtuAPI\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \NdaartuAPI\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'isAdmin' => \NdarrtuAPI\Http\Middleware\CheckIsAdmin::class,
-        'isAdminOrSelf' => \NdarrtuAPI\Http\Middleware\CheckIsAdminOrProf::class,
+        'isAdmin' => \NdaartuAPI\Http\Middleware\CheckIsAdmin::class,
+        'isAdminOrSelf' => \NdaartuAPI\Http\Middleware\CheckIsAdminOrProf::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Auth\Access\Middleware\Authorize::class,
@@ -81,7 +81,7 @@ class Kernel extends HttpKernel
     protected $middlewarePriority = [
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \NdarrtuAPI\Http\Middleware\Authenticate::class,
+        \NdaartuAPI\Http\Middleware\Authenticate::class,
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,

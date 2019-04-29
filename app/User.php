@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI;
+namespace NdaartuAPI;
 
 use Illuminate\Notifications\Notifiable;
 //use Laravel\Passport\HasApiTokens;
@@ -11,7 +11,9 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
-        //HasApiTokens;
+
+
+
 
 
     /**

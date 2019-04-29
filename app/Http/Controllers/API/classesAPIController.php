@@ -1,18 +1,18 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers\API;
+namespace NdaartuAPI\Http\Controllers\API;
 
-use NdarrtuAPI\Http\Requests\API\CreateclassesAPIRequest;
-use NdarrtuAPI\Http\Requests\API\UpdateclassesAPIRequest;
-use NdarrtuAPI\Models\classes;
-use NdarrtuAPI\Repositories\classesRepository;
+use NdaartuAPI\Http\Requests\API\CreateclassesAPIRequest;
+use NdaartuAPI\Http\Requests\API\UpdateclassesAPIRequest;
+use NdaartuAPI\Models\classes;
+use NdaartuAPI\Repositories\classesRepository;
 use Illuminate\Http\Request;
-use NdarrtuAPI\Http\Controllers\AppBaseController;
+use NdaartuAPI\Http\Controllers\AppBaseController;
 use Response;
 
 /**
  * Class classesController
- * @package NdarrtuAPI\Http\Controllers\API
+ * @package NdaartuAPI\Http\Controllers\API
  */
 
 class classesAPIController extends AppBaseController

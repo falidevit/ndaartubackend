@@ -1,12 +1,12 @@
 <?php
 
-namespace NdarrtuAPI\Models;
+namespace NdaartuAPI\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
 
 /**
  * Class absences
- * @package NdarrtuAPI\Models
+ * @package NdaartuAPI\Models
  * @version April 27, 2019, 9:13 pm UTC
  *
  * @property string date

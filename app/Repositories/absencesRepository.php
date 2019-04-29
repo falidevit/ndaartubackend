@@ -1,13 +1,13 @@
 <?php
 
-namespace NdarrtuAPI\Repositories;
+namespace NdaartuAPI\Repositories;
 
-use NdarrtuAPI\Models\absences;
-use NdarrtuAPI\Repositories\BaseRepository;
+use NdaartuAPI\Models\absences;
+use NdaartuAPI\Repositories\BaseRepository;
 
 /**
  * Class absencesRepository
- * @package NdarrtuAPI\Repositories
+ * @package NdaartuAPI\Repositories
  * @version April 27, 2019, 9:13 pm UTC
 */
 

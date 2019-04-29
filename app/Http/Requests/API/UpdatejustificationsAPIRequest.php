@@ -1,8 +1,8 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests\API;
+namespace NdaartuAPI\Http\Requests\API;
 
-use NdarrtuAPI\Models\justifications;
+use NdaartuAPI\Models\justifications;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdatejustificationsAPIRequest extends APIRequest

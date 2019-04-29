@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\users_matieres;
+use NdaartuAPI\Models\users_matieres;
 
 class Createusers_matieresRequest extends FormRequest
 {

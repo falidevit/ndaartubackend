@@ -1,6 +1,6 @@
 <?php
 
-namespace NdarrtuAPI\Http\Controllers;
+namespace NdaartuAPI\Http\Controllers;
 
 use Illuminate\Http\Request;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\justifications;
+use NdaartuAPI\Models\justifications;
 
 class UpdatejustificationsRequest extends FormRequest
 {

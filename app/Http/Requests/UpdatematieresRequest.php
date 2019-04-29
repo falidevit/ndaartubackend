@@ -1,9 +1,9 @@
 <?php
 
-namespace NdarrtuAPI\Http\Requests;
+namespace NdaartuAPI\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NdarrtuAPI\Models\matieres;
+use NdaartuAPI\Models\matieres;
 
 class UpdatematieresRequest extends FormRequest
 {
