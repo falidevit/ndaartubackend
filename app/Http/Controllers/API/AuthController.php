@@ -67,8 +67,15 @@ class AuthController extends Controller
         return response()->json($response, 201);
     }
     public function register(Request $request)
+
     {
-        $payload = [
+        $request->validate([
+            'name' => 'string',
+            'role' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|confirmed'
+        ]);
+        $payload = new User([
             'role' => $request->role,
             'email' => $request->email,
             'password' => \Hash::make($request->password),
@@ -76,7 +83,17 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
 
             'auth_token' => ''
-        ];
+        ]);
+      /*  $payload = [
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+
+            'auth_token' => ''
+        ];*/
+
         $user = new \NdaartuAPI\User($payload);
         if ($user->save()) {
             $token = self::getToken($request->email, $request->password); // generate user token
