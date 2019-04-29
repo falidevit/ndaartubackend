@@ -46,9 +46,9 @@ class AuthController extends Controller
             if ($user->role == 'Admin' && $user->surveillant_id != '') {
                 foreach ($isAdmin as $admin) {
                     if ($admin->id == $user->surveillant_id) {
-                        $user->coachFullname = $coach->first_name . ' ' . $coach->last_name;
-                        $user->coachEmail = $coach->email;
-                        $user->coachPhone = $coach->phone;
+                        $user->fullname = $admin->first_name . ' ' . $admin->last_name;
+                        $user->Email = $admin->email;
+                        $user->Phone = $admin->phone;
                     }
                 }
             }
@@ -74,6 +74,11 @@ class AuthController extends Controller
             'password' => \Hash::make($request->password),
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            
+
+
 
             'auth_token' => ''
         ];
