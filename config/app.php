@@ -163,9 +163,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
+       // Laravel\Passport\PassportServiceProvider::class,
 
         /*
          * Package Service Providers...

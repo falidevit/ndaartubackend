@@ -18,6 +18,7 @@
         "infyomlabs/swagger-generator": "dev-master",
         "appointer/swaggervel": "dev-master",
         "doctrine/dbal": "~2.3",
+        "maatwebsite/excel": "~2.0.0",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {

@@ -1,55 +1,64 @@
 <?php
-namespace NdarrtuAPI\Http\Controllers;
+
+namespace App\Http\Controllers;
 namespace NdarrtuAPI\Http\Controllers\API;
+
+use NdarrtuAPI\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-use NdarrtuAPI\User;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
+
 class AuthController extends Controller
 {
-    /**
-     * Create user
-     *
-     * @param  [string] name
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [string] password_confirmation
-     * @return [string] message
-     */
-    public function signup(Request $request)
+    public function authenticate(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
+        $credentials = $request->only('email', 'password');
+
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        return response()->json(compact('token'));
+    }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'string',
+            'role' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
         ]);
-        $user = new User([
+
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $user = User::create([
             'name' => $request->name,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        $user->save();
-        return response()->json([
-            'message' => 'Successfully created user!'
-        ], 201);
-    }
 
-    /**
-     * Login user and create token
-     *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
-     */
+        $token = JWTAuth::fromUser($user);
+
+        return response()->json(compact('user','token'),201);
+    }
     public function login(Request $request)
     {
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
-            'remember_me' => 'boolean'
+            //'remember_me' => 'boolean'
         ]);
         $credentials = request(['email', 'password']);
         if(!Auth::attempt($credentials))
@@ -71,26 +80,28 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Logout user (Revoke the token)
-     *
-     * @return [string] message
-     */
-    public function logout(Request $request)
+    public function getAuthenticatedUser()
     {
-        $request->user()->token()->revoke();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
-    }
+        try {
 
-    /**
-     * Get the authenticated User
-     *
-     * @return [json] user object
-     */
-    public function user(Request $request)
-    {
-        return response()->json($request->user());
+            if (! $user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+
+            return response()->json(['token_expired'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+
+            return response()->json(['token_invalid'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+
+            return response()->json(['token_absent'], $e->getStatusCode());
+
+        }
+
+        return response()->json(compact('user'));
     }
 }

@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \NdarrtuAPI\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \NdarrtuAPI\Http\Middleware\TrustProxies::class,
+        \NdarrtuAPI\Http\Middleware\CORS::class,
     ];
 
     /**
@@ -31,7 +32,7 @@ class Kernel extends HttpKernel
             \NdarrtuAPI\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \NdarrtuAPI\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Auth\Access\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'CORS' => \App\Http\Middleware\CORS::class,
     ];
 
     /**

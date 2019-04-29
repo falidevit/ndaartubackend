@@ -3,6 +3,7 @@
 namespace NdarrtuAPI;
 
 use Illuminate\Notifications\Notifiable;
+//use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -10,6 +11,8 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+        //HasApiTokens;
+
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','role', 'email', 'password',
     ];
 
     /**

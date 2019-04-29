@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,34 +18,32 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::prefix('auth')->group(function () {
-    Route::post('register', 'AuthController@signup');
+    Route::post('register', 'AuthController@register');
     Route::get('login', 'AuthController@login');
+    Route::get('logout', 'AuthController@logout');
     Route::get('refresh', 'AuthController@refresh');
 
     Route::group(['middleware' => 'auth:api'], function(){
         //Route::get('user', 'AuthController@user');
         //Route::post('logout', 'AuthController@logout');
-        Route::get('users', 'UserController@index')->middleware('isAdmin');
-        Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrProf');
+        Route::get('users', 'UserAPIController@index')->middleware('isAdmin');
+        Route::get('users/{id}', 'UserAPIController@show')->middleware('isAdminOrProf');
     });
 });
-//Route::group(['middleware' => 'auth:api'], function(){
-    // Users
-  //  Route::get('users', 'UserController@index')->middleware('isAdmin');
-    //Route::get('users/{id}', 'UserController@show')->middleware('isAdminOrProf');
-//});
 
 
-Route::resource('etablissements', 'etablissementsAPIController');
 
-Route::resource('classes', 'classesAPIController');
+        Route::resource('etablissements', 'etablissementsAPIController');
 
-Route::resource('annees', 'anneesAPIController');
+        Route::resource('classes', 'classesAPIController');
 
-Route::resource('absences', 'absencesAPIController');
+        Route::resource('annees', 'anneesAPIController');
 
-Route::resource('justifications', 'justificationsAPIController');
+        Route::resource('absences', 'absencesAPIController');
+        Route::resource('all_absences', 'absencesAPIController');
 
-Route::resource('presences', 'presencesAPIController');
+        Route::resource('justifications', 'justificationsAPIController');
 
-Route::resource('users_matieres', 'users_matieresAPIController');
+        Route::resource('presences', 'presencesAPIController');
+
+        Route::resource('users_matieres', 'users_matieresAPIController');
