@@ -16,6 +16,8 @@ class AddNewFieldContraintToUser extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('classes_id')->nullable()->unsigned();
             $table->foreign('classes_id')->references('id')->on('classes');
+            $table->string('dateDeNaissance')->nullable();
+            $table->string('lieuDeNaissance')->nullable();
         });
     }
 
