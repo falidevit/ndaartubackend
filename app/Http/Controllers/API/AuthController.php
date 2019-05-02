@@ -54,7 +54,7 @@ class AuthController extends Controller
             }
             $response = ['success' => true, 'data' => $user];
         } else
-            $response = ['success' => false, 'data' => 'Password or email is invalid'];
+            $response = ['success' => false, 'data' => 'Record doesnt exists'];
         return response()->json($response, 201);
     }
     public function Logout()
@@ -66,23 +66,9 @@ class AuthController extends Controller
         ];
         return response()->json($response, 201);
     }
-    public function register(Request $request)
-
+    public function register(CreateuserAPIRequest $request)
     {
-
-        $request->validate([
-            'name' => 'string',
-            'role' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed'
-
-       
-        
-            ]);
-
-
-
-        $payload = new User([
+        $payload = [
             'role' => $request->role,
             'email' => $request->email,
             'password' => \Hash::make($request->password),
@@ -90,20 +76,12 @@ class AuthController extends Controller
             'last_name' => $request->last_name,
             'phone' => $request->phone,
             'address' => $request->address,
-            'auth_token' => ''
 
-        ]);
-      /*  $payload = [
-            'role' => $request->role,
-            'email' => $request->email,
-            'password' => \Hash::make($request->password),
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+
+
 
             'auth_token' => ''
-        ];*/
-
-
+        ];
         $user = new \NdaartuAPI\User($payload);
         if ($user->save()) {
             $token = self::getToken($request->email, $request->password); // generate user token
@@ -116,5 +94,124 @@ class AuthController extends Controller
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
     }
+
+    public function registerAdmin(CreateuserAPIRequest $request)
+    {
+        $payload = [
+            'role' => $request->"surveillant",
+            'email' => $request->email,
+            'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+
+
+
+
+            'auth_token' => ''
+        ];
+        $user = new \NdaartuAPI\User($payload);
+        if ($user->save()) {
+            $token = self::getToken($request->email, $request->password); // generate user token
+            if (!is_string($token))  return response()->json(['success' => false, 'data' => 'Token generation failed'], 201);
+            $user = \NdaartuAPI\User::where('email', $request->email)->get()->first();
+            $user->auth_token = $token; // update user token
+            $user->save();
+            $response = ['success' => true, 'data' => ['name' => $user->name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
+            'id' => $user->surveillant_id;
+        } else
+            $response = ['success' => false, 'data' => 'Couldnt register user'];
+        return response()->json($response, 201);
+    }
+    public function registerEleve(CreateuserAPIRequest $request)
+    {
+        $payload = [
+            'role' => $request->"eleve",
+            //'email' => $request->email,
+            //'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+          //  'phone' => $request->phone,
+            'address' => $request->address,
+
+
+
+
+            'auth_token' => ''
+        ];
+        $user = new \NdaartuAPI\User($payload);
+        if ($user->save()) {
+          //  $token = self::getToken($request->email, $request->password); // generate user token
+            //if (!is_string($token))  return response()->json(['success' => false, 'data' => 'Token generation failed'], 201);
+            //$user = \NdaartuAPI\User::where('email', $request->email)->get()->first();
+          //  $user->auth_token = $token; // update user token
+            $user->save();
+            $response = ['success' => true, 'data' => [ 'id' => $user->id, 'first_name' => $user->first_name]];
+            'id' => $user->eleve_id;
+        } else
+            $response = ['success' => false, 'data' => 'Couldnt register user'];
+        return response()->json($response, 201);
+    }
+    public function registerProfesseur(CreateuserAPIRequest $request)
+    {
+        $payload = [
+            'role' => $request->"professeur",
+            'email' => $request->email,
+            'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+
+
+
+
+            'auth_token' => ''
+        ];
+        $user = new \NdaartuAPI\User($payload);
+        if ($user->save()) {
+            $token = self::getToken($request->email, $request->password); // generate user token
+            if (!is_string($token))  return response()->json(['success' => false, 'data' => 'Token generation failed'], 201);
+            $user = \NdaartuAPI\User::where('email', $request->email)->get()->first();
+            $user->auth_token = $token; // update user token
+            $user->save();
+            $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
+            'id' => $user->professeur_id;
+        } else
+            $response = ['success' => false, 'data' => 'Couldnt register user'];
+        return response()->json($response, 201);
+    }
+    public function registerParent(CreateuserAPIRequest $request)
+    {
+        $payload = [
+            'role' => $request->"parent",
+            'email' => $request->email,
+            //'password' => \Hash::make($request->password),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+
+
+
+
+            'auth_token' => ''
+        ];
+        $user = new \NdaartuAPI\User($payload);
+        if ($user->save()) {
+          //$token = self::getToken($request->email, $request->password); // generate user token
+            //if (!is_string($token))  return response()->json(['success' => false, 'data' => 'Token generation failed'], 201);
+            //$user = \NdaartuAPI\User::where('email', $request->email)->get()->first();
+            //$user->auth_token = $token; // update user token
+            $user->save();
+            $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email]];
+            'id' => $user->parent_id;
+        } else
+            $response = ['success' => false, 'data' => 'Couldnt register user'];
+        return response()->json($response, 201);
+    }
+    
+
 
 }
