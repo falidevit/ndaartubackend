@@ -22,12 +22,13 @@ Route::prefix('auth')->group(function () {
     Route::get('login', 'AuthController@login');
     Route::get('logout', 'AuthController@logout');
     Route::get('refresh', 'AuthController@refresh');
+    Route::get('modification', 'AuthController@refresh');
 
     Route::group(['middleware' => 'auth:api'], function(){
         //Route::get('user', 'AuthController@user');
         //Route::post('logout', 'AuthController@logout');
-        Route::get('users', 'UserAPIController@index')->middleware('isAdmin');
-        Route::get('users/{id}', 'UserAPIController@show')->middleware('isAdminOrProf');
+    Route::get('users', 'UserAPIController@index')->middleware('isAdmin');
+    Route::get('users/{id}', 'UserAPIController@show')->middleware('isAdminOrProf');
     });
 });
 
@@ -40,6 +41,7 @@ Route::prefix('auth')->group(function () {
         Route::resource('annees', 'anneesAPIController');
 
         Route::resource('absences', 'absencesAPIController');
+
         Route::resource('all_absences', 'absencesAPIController');
 
         Route::resource('justifications', 'justificationsAPIController');
