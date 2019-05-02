@@ -69,18 +69,20 @@ class AuthController extends Controller
     public function register(Request $request)
 
     {
-<<<<<<< HEAD
+
         $request->validate([
             'name' => 'string',
             'role' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
-        ]);
-        $payload = new User([
-=======
 
-        $payload = [
->>>>>>> akane
+       
+        
+            ]);
+
+
+
+        $payload = new User([
             'role' => $request->role,
             'email' => $request->email,
             'password' => \Hash::make($request->password),
@@ -89,7 +91,7 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'address' => $request->address,
             'auth_token' => ''
-<<<<<<< HEAD
+
         ]);
       /*  $payload = [
             'role' => $request->role,
@@ -101,24 +103,7 @@ class AuthController extends Controller
             'auth_token' => ''
         ];*/
 
-=======
-        ];
-       $validation = Validator::make(compact($payload), [
-            'role' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string|confirmed']);
-        if($validation->fails()){
-            return response()->json([
-                'response' => 'error',
-                'message' => 'Des champs requis non remplis',
-            ]);
-        }else{
-            return response()->json([
-                'response' => 'Success',
-                'message' => 'Utilisateur créer avce succées',
-            ]);
-        }
->>>>>>> akane
+
         $user = new \NdaartuAPI\User($payload);
         if ($user->save()) {
             $token = self::getToken($request->email, $request->password); // generate user token
