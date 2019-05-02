@@ -20,6 +20,7 @@ class AddNewFieldsToUser extends Migration
             $table->string('address', 255)->nullable();
             $table->string('verify_code', 255)->nullable();
             $table->longtext('auth_token', 255)->nullable();
+            $table->string('password')->nullable();
         });
     }
 
