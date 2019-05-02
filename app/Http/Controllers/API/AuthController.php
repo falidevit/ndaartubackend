@@ -98,7 +98,7 @@ class AuthController extends Controller
     public function registerAdmin(CreateuserAPIRequest $request)
     {
         $payload = [
-            'role' => $request->"surveillant",
+            'role' => "surveillant",
             'email' => $request->email,
             'password' => \Hash::make($request->password),
             'first_name' => $request->first_name,
@@ -119,7 +119,7 @@ class AuthController extends Controller
             $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['name' => $user->name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
-            'id' => $user->surveillant_id;
+            $user->id => $user->surveillant_id;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -127,7 +127,7 @@ class AuthController extends Controller
     public function registerEleve(CreateuserAPIRequest $request)
     {
         $payload = [
-            'role' => $request->"eleve",
+            'role' => "eleve",
             //'email' => $request->email,
             //'password' => \Hash::make($request->password),
             'first_name' => $request->first_name,
@@ -148,7 +148,7 @@ class AuthController extends Controller
           //  $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => [ 'id' => $user->id, 'first_name' => $user->first_name]];
-            'id' => $user->eleve_id;
+            $user->id=> $user->eleve_id;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -156,7 +156,7 @@ class AuthController extends Controller
     public function registerProfesseur(CreateuserAPIRequest $request)
     {
         $payload = [
-            'role' => $request->"professeur",
+            'role' => "professeur",
             'email' => $request->email,
             'password' => \Hash::make($request->password),
             'first_name' => $request->first_name,
@@ -177,7 +177,7 @@ class AuthController extends Controller
             $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
-            'id' => $user->professeur_id;
+            $user->id => $user->professeur_id;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -185,7 +185,7 @@ class AuthController extends Controller
     public function registerParent(CreateuserAPIRequest $request)
     {
         $payload = [
-            'role' => $request->"parent",
+            'role' => "parent",
             'email' => $request->email,
             //'password' => \Hash::make($request->password),
             'first_name' => $request->first_name,
@@ -206,12 +206,12 @@ class AuthController extends Controller
             //$user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email]];
-            'id' => $user->parent_id;
+            $user->id => $user->parent_id;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
     }
-    
+
 
 
 }

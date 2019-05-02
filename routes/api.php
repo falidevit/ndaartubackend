@@ -19,6 +19,10 @@ use Illuminate\Http\Request;
 //});
 Route::prefix('auth')->group(function () {
     Route::post('register', 'AuthController@register');
+    Route::post('registerProfesseur', 'AuthController@registerProfesseur');
+    Route::post('registerAdmin', 'AuthController@registerAdmin');
+    Route::post('registerEleve', 'AuthController@registerEleve');
+    Route::post('registerParent', 'AuthController@registerParent');
     Route::get('login', 'AuthController@login');
     Route::get('logout', 'AuthController@logout');
     Route::get('refresh', 'AuthController@refresh');
