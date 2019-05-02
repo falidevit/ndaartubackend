@@ -22,6 +22,7 @@ Route::prefix('auth')->group(function () {
     Route::get('login', 'AuthController@login');
     Route::get('logout', 'AuthController@logout');
     Route::get('refresh', 'AuthController@refresh');
+    Route::get('modification', 'AuthController@refresh');
 
     Route::group(['middleware' => 'auth:api'], function(){
         //Route::get('user', 'AuthController@user');
