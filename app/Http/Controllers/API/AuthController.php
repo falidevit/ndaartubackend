@@ -119,7 +119,7 @@ class AuthController extends Controller
             $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['name' => $user->name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
-            $user->id => $user->surveillant_id;
+            $user->surveillant_id = $user->id  ;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -148,7 +148,7 @@ class AuthController extends Controller
           //  $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => [ 'id' => $user->id, 'first_name' => $user->first_name]];
-            $user->id=> $user->eleve_id;
+            $user->eleve_id = $user->id  ;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -177,7 +177,7 @@ class AuthController extends Controller
             $user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
-            $user->id => $user->professeur_id;
+            $user->professeur_id = $user->id  ;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -206,7 +206,7 @@ class AuthController extends Controller
             //$user->auth_token = $token; // update user token
             $user->save();
             $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email]];
-            $user->id => $user->parent_id;
+            $user->parent_id = $user->id  ;
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
