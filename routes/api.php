@@ -22,7 +22,6 @@ Route::prefix('auth')->group(function () {
     Route::post('registerProfesseur', 'AuthController@registerProfesseur');
     Route::post('registerAdmin', 'AuthController@registerAdmin');
     Route::post('registerEleve', 'AuthController@registerEleve');
-    Route::post('registerParent', 'AuthController@registerParent');
     Route::get('login', 'AuthController@login');
     Route::get('logout', 'AuthController@logout');
     Route::get('refresh', 'AuthController@refresh');
@@ -32,6 +31,7 @@ Route::prefix('auth')->group(function () {
         //Route::get('user', 'AuthController@user');
         //Route::post('logout', 'AuthController@logout');
     Route::get('users', 'UserAPIController@index')->middleware('isAdmin');
+    Route::get('userAdmin', 'UserAPIController@showAdmin{"surveillant"}');
     Route::get('users/{id}', 'UserAPIController@show')->middleware('isAdminOrProf');
     });
 });

@@ -34,6 +34,7 @@ class UserAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
+
         $users = $this->userRepository->all(
             $request->except(['skip', 'limit']),
             $request->get('skip'),
@@ -42,7 +43,19 @@ class UserAPIController extends AppBaseController
 
         return $this->sendResponse($users->toArray(), 'Users retrieved successfully');
     }
+  /*  public function indexAdmin(Request $request)
+    {
+      $users = User::where('role', 'surveillant')->get()
+      $users = $this->userRepository->all(
+            $request->except(['skip', 'limit']),
+            $request->get('skip'),
+            $request->get('limit')
+        );
 
+        return $this->sendResponse($users->toArray(), 'Admin retrieved successfully');
+    }
+
+*/
     /**
      * Store a newly created User in storage.
      * POST /users
@@ -79,7 +92,17 @@ class UserAPIController extends AppBaseController
 
         return $this->sendResponse($user->toArray(), 'User retrieved successfully');
     }
+    public function showAdmin($role)
+    {
+        /** @var User $user */
+        $user = $this->userRepository->find($role);
 
+        if (empty($user)) {
+            return $this->sendError('User not found');
+        }
+
+        return $this->sendResponse($user->toArray(), 'Admin retrieved successfully');
+    }
     /**
      * Update the specified User in storage.
      * PUT/PATCH /users/{id}

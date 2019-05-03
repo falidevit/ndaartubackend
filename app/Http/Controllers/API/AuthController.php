@@ -95,6 +95,7 @@ class AuthController extends Controller
         return response()->json($response, 201);
     }
 
+
     public function registerAdmin(Request $request)
     {
       $this->validate($request,[
@@ -141,16 +142,36 @@ class AuthController extends Controller
 
 
 
-
-            'auth_token' => ''
         ];
-        $user = new \NdaartuAPI\User($payload);
-        if ($user->save()) {
-            $user->save();
-            $response = ['success' => true, 'data' => [ 'id' => $user->id, 'first_name' => $user->first_name]];
+        $eleve = new \NdaartuAPI\User($payload);
+        if ($eleve->save()) {
+            $eleve->save();
+            $response = ['success' => true, 'data' => [ 'id' => $eleve->id, 'first_name' => $eleve->first_name]];
 
-            $user->eleve_id = $user->id  ;
-            $user->save();
+            $eleve->eleve_id = $eleve->id  ;
+            $eleve->save();
+            //creation d'un parent apres l'eleve
+            $payload1 = [
+                'role' => "parent",
+                'email' => $request->email,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'phone' => $request->phone,
+                'address' => $request->address,
+
+            ];
+            $parent = new \NdaartuAPI\User($payload1);
+            if ($parent->save()) {
+                $parent->save();
+                $response = ['success' => true, 'data' => ['first_name' => $parent->first_name, 'id' => $parent->id, 'email' => $request->email]];
+                $parent->parent_id = $parent->id  ;
+                //assignation de l'id de l'eleve pour le parent correspondant
+                $parent->eleve_id = $eleve->eleve_id;
+                $parent->save();
+              } else
+                  $response = ['success' => false, 'data' => 'Couldnt register user'];
+              return response()->json($response, 201);
+
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
         return response()->json($response, 201);
@@ -184,33 +205,6 @@ class AuthController extends Controller
             $user->save();
             $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email, 'auth_token' => $token]];
             $user->professeur_id = $user->id  ;
-            $user->save();
-        } else
-            $response = ['success' => false, 'data' => 'Couldnt register user'];
-        return response()->json($response, 201);
-    }
-    public function registerParent(Request $request)
-    {
-      $this->validate($request,[
-      ]);
-        $payload = [
-            'role' => "parent",
-            'email' => $request->email,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'phone' => $request->phone,
-            'address' => $request->address,
-
-
-
-
-            'auth_token' => ''
-        ];
-        $user = new \NdaartuAPI\User($payload);
-        if ($user->save()) {
-            $user->save();
-            $response = ['success' => true, 'data' => ['first_name' => $user->first_name, 'id' => $user->id, 'email' => $request->email]];
-            $user->parent_id = $user->id  ;
             $user->save();
         } else
             $response = ['success' => false, 'data' => 'Couldnt register user'];
