@@ -18,10 +18,10 @@ class AddInternalContraintsFieldsToUser extends Migration
             $table->bigInteger('eleve_id')->nullable()->unsigned();
             $table->bigInteger('professeur_id')->nullable()->unsigned();
             $table->bigInteger('surveillant_id')->nullable()->unsigned();
-            $table->foreign('parent_id')->references('id')->on('users');
-            $table->foreign('eleve_id')->references('id')->on('users');
-            $table->foreign('professeur_id')->references('id')->on('users');
-            $table->foreign('surveillant_id')->references('id')->on('users');
+            $table->foreign('parent_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('eleve_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('professeur_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('surveillant_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
